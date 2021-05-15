@@ -7,15 +7,20 @@
         {{ message }}
       </li>
     </ul>
+    <ConnectFour/>
   </div>
 </template>
 
 <script>
 
 import { io } from "socket.io-client";
+import ConnectFour from '../components/games/connect-four'
 
 export default {
   name: 'Home',
+  components: {
+    ConnectFour,
+  },
   data() {
     return {
       socket: null,
@@ -40,3 +45,4 @@ export default {
   }
 }
 </script>
+
