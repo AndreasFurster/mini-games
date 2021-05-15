@@ -30,6 +30,7 @@
 
 <script>
 export default {
+  inject: ['socket'],
   data: () => ({
     turn: "red",
     boardState: null,
@@ -38,6 +39,11 @@ export default {
   created() {
     this.resetBoardState()
     this.resetMovePreviews()
+  },
+  mounted() {
+    this.socket.on('games/connectfour/move', (col) => {
+      this.doMove(col)
+    });
   },
   methods: {
     resetBoardState() {
@@ -62,9 +68,11 @@ export default {
       this.resetMovePreviews()
       this.movePreviews[colIndex] = this.turn
     },
-    colClick(colIndex) {
+    colClick(col) {
+      this.socket.emit('games/connectfour/move', col);
+    },
+    doMove(colIndex) {
       const col = this.boardState[colIndex]
-
 
       for (let i = 0; i < col.length; i++) {
         const cell = col[i];
@@ -110,6 +118,7 @@ export default {
 
 .board {
   background: blue;
+  border-radius: 5px;
 }
 
 .col {
@@ -131,7 +140,7 @@ export default {
 }
 
 .move-previews .cell {
-  top: 22px;
+  top: 30%;
   z-index: -1;
 }
 

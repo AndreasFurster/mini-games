@@ -13,7 +13,6 @@
 
 <script>
 
-import { io } from "socket.io-client";
 import ConnectFour from '../components/games/connect-four'
 
 export default {
@@ -29,18 +28,18 @@ export default {
     }
   },
   mounted() {
-    this.socket = io("http://localhost:3000");
+    
 
-    this.socket.on('message', (msg) => {
-      this.messages.push(msg)
-    });
+    // this.socket.on('message', (msg) => {
+    //   this.messages.push(msg)
+    // });
   },
   methods: {
     sendMessage() {
-      if (this.message) {
-        this.socket.emit('message', this.message);
-        this.message = '';
-      }
+      // if (this.message) {
+      //   this.socket.emit('message', this.message);
+      //   this.message = '';
+      // }
     }
   }
 }
