@@ -8,7 +8,7 @@ import { io } from "socket.io-client";
 import 'element-plus/lib/theme-chalk/index.css'
 import 'normalize.css'
 
-const socket = io("http://localhost:3000");
+const socket = io(process.env.VUE_APP_SERVER_URL);
 
 const app = createApp(App)
 app.use(router)
