@@ -114,6 +114,7 @@ app.get('/', (req, res) => {
   res.send('<h1>What are you doing here? Pls just go back.</h1>');
 });
 
-server.listen(process.env.PORT|| 3000, () => {
-  console.log('listening on http://localhost:3000');
+const port = process.env.PORT|| 3000
+server.listen(port, () => {
+  console.log(`listening on http://localhost:${port}`);
 });
