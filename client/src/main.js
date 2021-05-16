@@ -8,7 +8,7 @@ import { io } from "socket.io-client";
 import 'element-plus/lib/theme-chalk/index.css'
 import 'normalize.css'
 
-const socket = io(process.env.VUE_APP_SERVER_URL);
+const socket = io(process.env.VUE_APP_SERVER_URL || 'https://multiplayer-games-ws.azurewebsites.net');
 
 const app = createApp(App)
 app.use(router)
