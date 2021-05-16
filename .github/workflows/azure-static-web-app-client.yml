@@ -1,4 +1,4 @@
-name: Azure Static Web Apps CI/CD
+name: Deploy Client to Azure Static Web Apps
 
 on:
   push:
