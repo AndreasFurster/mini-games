@@ -7,7 +7,7 @@ const { Server } = require("socket.io");
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:8080",
+    origin: "https://mini-games.andreasfurster.nl",
     methods: ["GET", "POST"]
   }
 });
@@ -114,6 +114,6 @@ app.get('/', (req, res) => {
   res.send('<h1>What are you doing here? Pls just go back.</h1>');
 });
 
-server.listen(3000, () => {
+server.listen(process.env.PORT|| 3000, () => {
   console.log('listening on http://localhost:3000');
 });
