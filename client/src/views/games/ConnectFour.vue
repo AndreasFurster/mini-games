@@ -87,7 +87,6 @@ export default {
     });
 
     this.socket.on("room/data", (data) => {
-      console.log('new data', data);
       if (data.move) {
         this.doMove(data.move, this.otherColor);
       }

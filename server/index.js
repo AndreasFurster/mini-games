@@ -4,12 +4,19 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
+const { instrument } = require("@socket.io/admin-ui");
 
 const io = new Server(server, {
   cors: {
-    origin: "https://mini-games.andreasfurster.nl",
-    methods: ["GET", "POST"]
+    origin: ["http://localhost:8080", "https://mini-games.andreasfurster.nl", "https://admin.socket.io"],
+    methods: ["GET", "POST"],
+    credentials: true,
   }
+});
+
+instrument(io, {
+  readonly: true,
+  auth: false
 });
 
 // TODO: Store in DB?

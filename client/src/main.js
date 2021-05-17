@@ -8,7 +8,11 @@ import { io } from "socket.io-client";
 import 'element-plus/lib/theme-chalk/index.css'
 import 'normalize.css'
 
-const socket = io(process.env.VUE_APP_SERVER_URL || 'https://multiplayer-games-ws.azurewebsites.net');
+if(!process.env.VUE_APP_SERVER_URL) {
+    console.error('Server url is not defined in env!')
+}
+
+const socket = io(process.env.VUE_APP_SERVER_URL);
 
 const app = createApp(App)
 app.use(router)
