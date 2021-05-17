@@ -11,8 +11,7 @@ const io = new Server(server, {
     origin: ["http://localhost:8080", "https://mini-games.andreasfurster.nl", "https://admin.socket.io"],
     methods: ["GET", "POST"],
     credentials: true,
-  },
-  transports: ['websocket']
+  }
 });
 
 instrument(io, {
