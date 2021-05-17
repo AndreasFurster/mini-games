@@ -12,7 +12,10 @@ if(!process.env.VUE_APP_SERVER_URL) {
     console.error('Server url is not defined in env!')
 }
 
-const socket = io(process.env.VUE_APP_SERVER_URL);
+const socket = io(process.env.VUE_APP_SERVER_URL, {
+    transports: ['websocket'],
+    upgrade: false,
+});
 
 const app = createApp(App)
 app.use(router)
