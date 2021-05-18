@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "pm2 start ./server.js --watch --no-daemon",
-    "prod": "pm2 start ./server.js --no-daemon"
+    "prod": "node server.js"
   },
   "keywords": [],
   "author": "",

@@ -13,8 +13,8 @@ if(!process.env.VUE_APP_SERVER_URL) {
 }
 
 const socket = io(process.env.VUE_APP_SERVER_URL, {
-    transports: ['websocket'],
-    upgrade: false,
+    // transports: ['websocket'],
+    // upgrade: false,
 });
 
 const app = createApp(App)
